@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Rose",
+    "price": 2.50,
+    "ready-for-sale": true,
+    "locations": [
+      1
+    ]
+  },
+  {
+    "name": "Birke",
+    "price": 20.50,
+    "ready-for-sale": true,
+    "locations": [
+      2
+    ]
+  },
+  {
+    "name": "Tanne",
+    "price": 22.50,
+    "ready-for-sale": true,
+    "locations": [
+      3
+    ]
+  }
+]

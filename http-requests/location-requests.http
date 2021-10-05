@@ -1,0 +1,64 @@
+POST localhost:8080/api/locations/add-location
+Content-Type: application/json
+
+{
+  "street": "Herrengasse",
+  "zip-code": "4020",
+  "city": "Linz",
+  "row": 1,
+  "column": 2
+}
+
+###
+
+POST localhost:8080/api/locations/add-locations
+Content-Type: application/json
+
+[
+  {
+    "street": "Herrengasse",
+    "zip-code": "4060",
+    "city": "Leonding",
+    "row": 5,
+    "column": 1
+  },
+  {
+    "street": "Affenberg",
+    "zip-code": "4204",
+    "city": "Reichenau",
+    "row": 5,
+    "column": 12
+  }
+]
+
+###
+
+GET localhost:8080/api/locations/get-location/1
+Accept: application/json
+
+###
+
+PUT localhost:8080/api/locations/update-location
+Content-Type: application/json
+
+{
+  "id": 1,
+  "street": "Herrenstraße",
+  "zip-code": "4020",
+  "city": "Linz",
+  "row": 6,
+  "column": 10
+}
+
+###
+
+GET localhost:8080/api/locations/get-location/1
+Accept: application/json
+
+###
+
+DELETE localhost:8080/api/locations/delete-location/1
+
+###
+
+GET localhost:8080/api/locations/get-locations

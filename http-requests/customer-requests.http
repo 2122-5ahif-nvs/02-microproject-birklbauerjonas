@@ -1,0 +1,65 @@
+POST localhost:8080/api/customers/add-customer
+Content-Type: application/json
+
+{
+  "name": "Jonas Birklbauer",
+  "street": "Herrenstraße",
+  "zip-code": "4020",
+  "city": "Linz",
+  "phone-number": "06501235467"
+}
+
+###
+
+POST localhost:8080/api/customers/add-customers
+Content-Type: application/json
+
+[
+  {
+    "name": "Nico Bojer",
+    "street": "Herrenstraße",
+    "zip-code": "4020",
+    "city": "Linz",
+    "phone-number": "066001235467"
+  },
+  {
+    "name": "Tarik Hosic",
+    "street": "Herrenstraße",
+    "zip-code": "4020",
+    "city": "Linz",
+    "phone-number": "06641235467"
+  }
+]
+
+###
+
+GET localhost:8080/api/customers/get-customer/1
+Accept: application/json
+
+###
+
+PUT localhost:8080/api/customers/update-customer
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Jonas Birklbauer",
+  "street": "Herrenstraße",
+  "zip-code": "4060",
+  "city": "Leonding",
+  "phone-number": "06501235467"
+}
+
+###
+
+GET localhost:8080/api/customers/get-customer/1
+Accept: application/json
+
+###
+
+DELETE localhost:8080/api/customers/delete-customer/1
+
+###
+
+GET localhost:8080/api/customers/get-customers
+Accept: application/json
