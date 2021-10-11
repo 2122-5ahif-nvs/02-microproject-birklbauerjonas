@@ -4,6 +4,7 @@ import at.htl.baumschule.control.InvoiceRepository;
 import at.htl.baumschule.entity.Invoice;
 import at.htl.baumschule.entity.InvoiceItem;
 import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.inject.Inject;
 import javax.json.JsonValue;
@@ -13,6 +14,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("api/invoices")
+@Tag(name = "Invoices")
 public class InvoiceService {
 
     @Inject

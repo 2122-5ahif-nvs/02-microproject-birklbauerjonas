@@ -3,6 +3,7 @@ package at.htl.baumschule.boundary;
 import at.htl.baumschule.control.CustomerRepository;
 import at.htl.baumschule.entity.Customer;
 import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.inject.Inject;
 import javax.json.JsonValue;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("api/customers")
+@Tag(name = "Customer")
 public class CustomerService {
 
     @Inject
@@ -31,6 +33,10 @@ public class CustomerService {
                 .build();
     }
 
+    @Operation(
+            summary = "Saves a list of customers",
+            description = "Calls the method addCustomers, this method parses the json array and saves the customer entities to the database"
+    )
     @POST
     @Path("add-customers")
     @Produces(MediaType.TEXT_PLAIN)
@@ -41,6 +47,10 @@ public class CustomerService {
                 .build();
     }
 
+    @Operation(
+            summary = "Removes a customer",
+            description = "Calls the method deleteCustomer, this methods searches a customer with the given id, if found it gets removed from the database"
+    )
     @DELETE
     @Path("delete-customer/{id}")
     @Produces(MediaType.TEXT_PLAIN)
@@ -50,6 +60,10 @@ public class CustomerService {
                 .build();
     }
 
+    @Operation(
+            summary = "Updats a customer",
+            description = "Calls the method updateCustomer, this method parses the json object and searches a customer with the given id, if found the customer gets updated"
+    )
     @PUT
     @Path("update-customer")
     @Produces(MediaType.TEXT_PLAIN)
@@ -60,6 +74,10 @@ public class CustomerService {
                 .build();
     }
 
+    @Operation(
+            summary = "Gets a customer",
+            description = "Calls the method getCustomer, this method searches a customer with the given id, if found it gets returned"
+    )
     @GET
     @Path("get-customer/{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -67,6 +85,10 @@ public class CustomerService {
         return customerRepository.getCustomer(id);
     }
 
+    @Operation(
+            summary = "Gets all customer",
+            description = "Calls the method getCustomers, this method returns a list of all customer"
+    )
     @GET
     @Path("get-customers")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
@@ -74,6 +96,10 @@ public class CustomerService {
         return customerRepository.getCustomers();
     }
 
+    @Operation(
+            summary = "Removes all customers",
+            description = "Calls the method clear, this method removes every customer"
+    )
     @POST
     @Path("clear")
     @Consumes()
