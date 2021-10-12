@@ -10,13 +10,13 @@ With this project you can simulate the purchase process of a customer buying cer
 manage the plants and locations of a tree nursery
 
 # Class diagram
-![cld.png](asciidoc/images/cld.png)
+![cld.png](asciidocs/images/cld.png)
 
 # Use-Case diagram for database
-![ucd-database.png](asciidoc/images/ucd_database.png)
+![ucd-database.png](asciidocs/images/ucd_database.png)
 
 # Use-Case diagram
-![ucd.png](asciidoc/images/ucd.png)
+![ucd.png](asciidocs/images/ucd.png)
 
 ## [Swagger-Page](http://localhost:8080/swagger-ui)
 
