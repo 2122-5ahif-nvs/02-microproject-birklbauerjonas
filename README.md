@@ -1,5 +1,9 @@
 # birklbauer-baumschule project
 
+## JAVA_HOME
+
+Needs to be java-11 otherwise Panache will throw an exception
+
 ## Description:
 
 With this project you can simulate the purchase process of a customer buying certain plants from a tree nursery and
