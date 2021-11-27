@@ -30,4 +30,3 @@ jobs:
         run: |
           scp target/birklbauer-baumschule-1.0.0-SNAPSHOT-runner.jar ${{ secrets.SERVER_USER }}@${{ secrets.SERVER }}:
           scp docker-compose.yml ${{ secrets.SERVER_USER }}@${{ secrets.SERVER }}:
-          scp db.env ${{ secrets.SERVER_USER }}@${{ secrets.SERVER }}:
