@@ -18,7 +18,7 @@ jobs:
         with:
           java-version: 11
       - name: Build
-        run: ./mvnw clean package -Dquarkus.package.type=uber-jar -B
+        run: ./mvnw clean package -Dquarkus.package.type=uber-jar -B -DskipTests
       - name: install ssh key
         uses: webfactory/ssh-agent@v0.4.1
         with:
@@ -29,3 +29,5 @@ jobs:
       - name: copy binaries to oravm
         run: |
           scp target/birklbauer-baumschule-1.0.0-SNAPSHOT.jar ${{ secrets.SERVER_USER }}@${{ secrets.SERVER }}:
+          scp docker-compose.yml ${{ secrets.SERVER_USER }}@${{ secrets.SERVER }}:
+          scp db.env ${{ secrets.SERVER_USER }}@${{ secrets.SERVER }}:
