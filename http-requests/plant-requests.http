@@ -1,0 +1,106 @@
+POST localhost:8080/api/locations/add-locations
+Content-Type: application/json
+
+[
+  {
+    "street": "Herrengasse",
+    "zip-code": "4060",
+    "city": "Leonding",
+    "row": 5,
+    "column": 1
+  },
+  {
+    "street": "Affenberg",
+    "zip-code": "4204",
+    "city": "Reichenau",
+    "row": 5,
+    "column": 12
+  },
+  {
+    "street": "Brahmsgasse",
+    "zip-code": "4481",
+    "city": "Asten",
+    "row": 2,
+    "column": 32
+  }
+]
+
+###
+
+POST localhost:8080/api/plants/add-plant
+Content-Type: application/json
+
+{
+  "name": "Rose",
+  "price": 2.50,
+  "ready-for-sale": true,
+  "locations": [
+    1,
+    2,
+    3
+  ]
+}
+
+###
+
+POST localhost:8080/api/plants/add-plants
+Content-Type: application/json
+
+[
+  {
+    "name": "Birke",
+    "price": 20.50,
+    "ready-for-sale": false,
+    "locations": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "name": "Tanne",
+    "price": 22.50,
+    "ready-for-sale": true,
+    "locations": [
+      1,
+      2,
+      3
+    ]
+  }
+]
+
+###
+
+GET localhost:8080/api/plants/get-plant/1
+Accept: application/json
+
+###
+
+PUT localhost:8080/api/plants/update-plant
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Rose",
+  "price": 3.50,
+  "ready-for-sale": true,
+  "locations": [
+    1,
+    2,
+    3
+  ]
+}
+
+###
+
+GET localhost:8080/api/plants/get-plant/1
+Accept: application/json
+
+###
+
+DELETE localhost:8080/api/plants/delete-plant/1
+
+###
+
+GET localhost:8080/api/plants/get-plants
+Accept: application/json

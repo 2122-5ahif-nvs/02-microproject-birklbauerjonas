@@ -1,0 +1,44 @@
+[
+  {
+    "customer-id": 1,
+    "date-of-purchase": "22.10.2020",
+    "invoice-items": [
+      {
+        "plant-id": 2,
+        "quantity": 30
+      },
+      {
+        "plant-id": 1,
+        "quantity": 15
+      }
+    ]
+  },
+  {
+    "customer-id": 2,
+    "date-of-purchase": "23.10.2020",
+    "invoice-items": [
+      {
+        "plant-id": 1,
+        "quantity": 22
+      },
+      {
+        "plant-id": 2,
+        "quantity": 14
+      }
+    ]
+  },
+  {
+    "customer-id": 3,
+    "date-of-purchase": "24.10.2020",
+    "invoice-items": [
+      {
+        "plant-id": 2,
+        "quantity": 2
+      },
+      {
+        "plant-id": 3,
+        "quantity": 50
+      }
+    ]
+  }
+]

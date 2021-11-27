@@ -1,0 +1,23 @@
+[
+  {
+    "street": "Herrengasse",
+    "zip-code": "4020",
+    "city": "Linz",
+    "row": 1,
+    "column": 2
+  },
+  {
+    "street": "Herrengasse",
+    "zip-code": "4060",
+    "city": "Leonding",
+    "row": 5,
+    "column": 1
+  },
+  {
+    "street": "Affenberg",
+    "zip-code": "4204",
+    "city": "Reichenau",
+    "row": 5,
+    "column": 12
+  }
+]

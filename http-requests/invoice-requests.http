@@ -1,0 +1,99 @@
+POST localhost:8080/api/plants/add-plants
+Content-Type: application/json
+
+[
+  {
+    "name": "Birke",
+    "price": 20.50,
+    "ready-for-sale": false
+  },
+  {
+    "name": "Tanne",
+    "price": 22.50,
+    "ready-for-sale": true
+  }
+]
+
+###
+
+POST localhost:8080/api/customers/add-customer
+Content-Type: application/json
+
+{
+  "name": "Jonas Birklbauer",
+  "street": "Herrenstraße",
+  "zip-code": "4020",
+  "city": "Linz",
+  "phone-number": "06501235467"
+}
+
+###
+
+POST localhost:8080/api/invoices/add-invoice
+Content-Type: application/json
+
+{
+  "customer-id": 1,
+  "date-of-purchase": "22.10.2020",
+  "invoice-items": [
+    {
+      "plant-id": 2,
+      "quantity": 30
+    }
+  ]
+}
+
+###
+
+POST localhost:8080/api/invoices/add-invoices
+Content-Type: application/json
+
+[
+  {
+    "customer-id": 1,
+    "date-of-purchase": "23.10.2020",
+    "invoice-items": [
+      {
+        "plant-id": 1,
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "customer-id": 1,
+    "date-of-purchase": "24.10.2020",
+    "invoice-items": [
+      {
+        "plant-id": 2,
+        "quantity": 2
+      }
+    ]
+  }
+]
+
+###
+
+GET localhost:8080/api/invoices/get-invoice/1
+
+###
+
+PUT localhost:8080/api/invoices/update-invoice
+Content-Type: application/json
+
+{
+  "id": 1,
+  "customer-id": 1,
+  "date-of-purchase": "25.10.2020"
+}
+
+###
+
+GET localhost:8080/api/invoices/get-invoice/1
+
+###
+
+DELETE localhost:8080/api/invoices/delete-invoice/1
+
+###
+
+GET localhost:8080/api/invoices/get-invoices

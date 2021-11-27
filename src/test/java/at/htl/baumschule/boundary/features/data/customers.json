@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Jonas Birklbauer",
+    "street": "Herrenstraße",
+    "zip-code": "4020",
+    "city": "Linz",
+    "phone-number": "06501235467"
+  },
+  {
+    "name": "Nico Bojer",
+    "street": "Herrenstraße",
+    "zip-code": "4020",
+    "city": "Linz",
+    "phone-number": "066001235467"
+  },
+  {
+    "name": "Tarik Hosic",
+    "street": "Herrenstraße",
+    "zip-code": "4020",
+    "city": "Linz",
+    "phone-number": "06641235467"
+  }
+]

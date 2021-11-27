@@ -1,0 +1,16 @@
+@startuml
+
+left to right direction
+actor Employee as e
+
+rectangle TreeNursery {
+    usecase "Add plants" as uc2
+    usecase "Add locations" as uc3
+    usecase "Create invoice" as uc4
+}
+
+e -- uc2
+e -- uc3
+e -- uc4
+
+@enduml

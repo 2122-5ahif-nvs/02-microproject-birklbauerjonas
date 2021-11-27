@@ -1,0 +1,13 @@
+@startuml
+class Plant
+
+class Customer
+
+Plant "*" -r-- "*" Invoice
+(Plant,Invoice) .. InvoiceItem
+Invoice -r-- Customer
+
+class Location
+
+Plant "*" -l-- "*" Location
+@enduml
