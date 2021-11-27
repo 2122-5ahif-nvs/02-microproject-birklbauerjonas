@@ -20,7 +20,10 @@ public class ChatSocket {
 
     @OnOpen
     public void onOpen(Session session, @PathParam("username") String username) {
-        sessions.put(username, session);
+        if (!username.toLowerCase().equals("support")) {
+            sessions.put(username, session);
+            broadcast(">> Support: Hello, how can I help you?");
+        }
     }
 
     @OnClose
@@ -41,6 +44,7 @@ public class ChatSocket {
             broadcast("User " + username + " joined");
         } else {
             broadcast(">> " + username + ": " + message);
+            broadcast(">> Support: I am very sorry, I can not help you with that. Have a great day :)");
         }
     }
 
