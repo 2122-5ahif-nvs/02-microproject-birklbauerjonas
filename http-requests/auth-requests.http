@@ -1,0 +1,46 @@
+POST {{keycloak-host}}/auth/realms/quarkus/protocol/openid-connect/token
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=admin&grant_type=password
+
+> {% client.global.set("auth_token", response.body.access_token); %}
+
+###
+
+POST {{keycloak-host}}/auth/realms/quarkus/protocol/openid-connect/token
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/x-www-form-urlencoded
+
+username=alice&password=alice&grant_type=password
+
+> {% client.global.set("user_auth_token", response.body.access_token); %}
+
+###
+
+GET {{quarkus-host}}/api/identity/info
+Authorization: Bearer {{auth_token}}
+Accept: application/json
+
+###
+
+GET {{quarkus-host}}/api/identity/info
+Authorization: Bearer {{user_auth_token}}
+Accept: application/json
+
+###
+
+GET {{quarkus-host}}/api/customers/get-customers
+Accept: application/json
+
+###
+
+GET {{quarkus-host}}/api/plants/get-plants
+Authorization: Bearer {{user_auth_token}}
+Accept: application/json
+
+###
+
+GET {{quarkus-host}}/api/invoices/get-invoices
+Authorization: Bearer {{auth_token}}
+Accept: application/json

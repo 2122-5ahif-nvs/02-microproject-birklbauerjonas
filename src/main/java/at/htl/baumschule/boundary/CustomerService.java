@@ -5,6 +5,7 @@ import at.htl.baumschule.entity.Customer;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.json.JsonValue;
 import javax.ws.rs.*;
@@ -12,8 +13,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("api/customers")
+@Path("customers")
 @Tag(name = "Customer")
+@RolesAllowed(value = {"user", "admin"})
 public class CustomerService {
 
     @Inject
@@ -104,6 +106,7 @@ public class CustomerService {
     @Path("clear")
     @Consumes()
     @Produces()
+    @RolesAllowed("admin")
     public void clear() {
         customerRepository.clear();
     }

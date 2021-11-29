@@ -4,6 +4,7 @@ import at.htl.baumschule.control.LocationRepository;
 import at.htl.baumschule.entity.Location;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.json.JsonValue;
 import javax.ws.rs.*;
@@ -11,8 +12,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("api/locations")
+@Path("locations")
 @Tag(name = "Locations")
+@RolesAllowed(value = {"user", "admin"})
 public class LocationService {
 
     @Inject
@@ -76,6 +78,7 @@ public class LocationService {
     @Path("clear")
     @Consumes()
     @Produces()
+    @RolesAllowed("admin")
     public void clear() {
         locationRepository.clear();
     }
