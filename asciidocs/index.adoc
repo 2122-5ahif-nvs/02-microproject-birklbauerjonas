@@ -14,6 +14,51 @@ ifdef::backend-html5[]
 // print the toc here (not at the default position)
 //toc::[]
 
+== Doku gh-actions pull request
+
+=== Neuen Branch erstellen
+
+* ``git checkout -b <branch-name>``
+* ``git add <files>``
+* ``git commit -m "<message>"``
+* ``git push origin <branch-name>``
+
+=== Branch mergen
+
+Voraussetzung ist, dass im ``ci.yml`` diese Zeilen vorhanden sind
+
+[yml, ci.yml, yml]
+----
+on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+----
+
+Es gibt 2 Optionen
+
+* Direkt vom master
+** image:git-merge-1.png[]
+
+* Auf den branch wechseln
+** image:git-merge-2.png[]
+** image:git-merge-2-option.png[]
+
+Danach auf Open-Pull-Request
+
+* image:git-pull-request.png[]
+** base-branch auswählen und welchen man mergen will
+** Kommentar gegebenenfalls schreiben
+
+Dann auf ``Create pull request``
+
+* image:git-complete-pull-request.png[]
+
+Als letztes dann auf ``Merge pull request``
+
+Danach hat man die Option diesen Branch zu löschen.
+
 == Class diagram
 
 [plantuml, Baumschule-cld, png]
