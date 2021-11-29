@@ -6,6 +6,7 @@ import at.htl.baumschule.entity.InvoiceItem;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.json.JsonValue;
 import javax.ws.rs.*;
@@ -13,8 +14,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("api/invoices")
+@Path("invoices")
 @Tag(name = "Invoices")
+@RolesAllowed(value = {"user", "admin"})
 public class InvoiceService {
 
     @Inject
@@ -81,6 +83,7 @@ public class InvoiceService {
     @GET
     @Path("get-invoices")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @RolesAllowed("admin")
     public List<Invoice> getInvoices() {
         return invoiceRepository.getInvoices();
     }
@@ -104,6 +107,7 @@ public class InvoiceService {
     @Path("clear")
     @Consumes()
     @Produces()
+    @RolesAllowed("admin")
     public void clear() {
         invoiceRepository.clear();
     }

@@ -1,6 +1,13 @@
 version: "3.8"
 
 services:
+  keycloak:
+    image: "jboss/keycloak:15.0.2"
+    env_file:
+      - ./keycloak.env
+    ports:
+      - '8180:8080'
+      - '8543:8443'
   db:
     image: "postgres:12.4"
     env_file:

@@ -1,4 +1,15 @@
+POST {{keycloak-host}}/auth/realms/quarkus/protocol/openid-connect/token
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=admin&grant_type=password
+
+> {% client.global.set("auth_token", response.body.access_token); %}
+
+###
+
 POST localhost:8080/api/customers/add-customer
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
@@ -12,6 +23,7 @@ Content-Type: application/json
 ###
 
 POST localhost:8080/api/customers/add-customers
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 [
@@ -34,11 +46,13 @@ Content-Type: application/json
 ###
 
 GET localhost:8080/api/customers/get-customer/1
+Authorization: Bearer {{auth_token}}
 Accept: application/json
 
 ###
 
 PUT localhost:8080/api/customers/update-customer
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
@@ -53,13 +67,16 @@ Content-Type: application/json
 ###
 
 GET localhost:8080/api/customers/get-customer/1
+Authorization: Bearer {{auth_token}}
 Accept: application/json
 
 ###
 
 DELETE localhost:8080/api/customers/delete-customer/1
+Authorization: Bearer {{auth_token}}
 
 ###
 
 GET localhost:8080/api/customers/get-customers
+Authorization: Bearer {{auth_token}}
 Accept: application/json
