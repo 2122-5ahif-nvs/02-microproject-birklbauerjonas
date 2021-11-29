@@ -1,4 +1,15 @@
+POST {{keycloak-host}}/auth/realms/quarkus/protocol/openid-connect/token
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=admin&grant_type=password
+
+> {% client.global.set("auth_token", response.body.access_token); %}
+
+###
+
 POST localhost:8080/api/locations/add-locations
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 [
@@ -28,6 +39,7 @@ Content-Type: application/json
 ###
 
 POST localhost:8080/api/plants/add-plant
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
@@ -44,6 +56,7 @@ Content-Type: application/json
 ###
 
 POST localhost:8080/api/plants/add-plants
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 [
@@ -72,11 +85,13 @@ Content-Type: application/json
 ###
 
 GET localhost:8080/api/plants/get-plant/1
+Authorization: Bearer {{auth_token}}
 Accept: application/json
 
 ###
 
 PUT localhost:8080/api/plants/update-plant
+Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
@@ -94,13 +109,16 @@ Content-Type: application/json
 ###
 
 GET localhost:8080/api/plants/get-plant/1
+Authorization: Bearer {{auth_token}}
 Accept: application/json
 
 ###
 
 DELETE localhost:8080/api/plants/delete-plant/1
+Authorization: Bearer {{auth_token}}
 
 ###
 
 GET localhost:8080/api/plants/get-plants
+Authorization: Bearer {{auth_token}}
 Accept: application/json

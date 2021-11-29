@@ -6,6 +6,7 @@ import at.htl.baumschule.entity.Plant;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.json.JsonValue;
 import javax.ws.rs.*;
@@ -13,8 +14,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("api/plants")
+@Path("plants")
 @Tag(name = "Plants")
+@RolesAllowed(value = {"user", "admin"})
 public class PlantService {
 
     @Inject
@@ -96,6 +98,7 @@ public class PlantService {
     @Path("clear")
     @Consumes()
     @Produces()
+    @RolesAllowed("admin")
     public void clear() {
         plantRepository.clear();
     }
