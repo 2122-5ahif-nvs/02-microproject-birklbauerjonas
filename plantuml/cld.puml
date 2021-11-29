@@ -1,0 +1,39 @@
+@startuml
+
+class Location {
+    -street : String
+    -zipCode : String
+    -city : String
+    -row : int
+    -column : int
+}
+
+class Plant {
+    -name : String
+    -price : double
+    -readyForSale : boolean
+}
+
+class Customer {
+    -name : String
+    -street : String
+    -zipCode : String
+    -city : String
+    -phone : String
+}
+
+class Invoice {
+    -totalPrice : Double
+    -dateOfPurchase : LocalDate
+}
+
+class InvoiceItem {
+    -quantity : int
+}
+
+Plant "*" -r-- "*" Invoice
+(Plant,Invoice) .. InvoiceItem
+Invoice "*" -r-- "1" Customer
+Plant "*" -l-- "*" Location
+
+@enduml
